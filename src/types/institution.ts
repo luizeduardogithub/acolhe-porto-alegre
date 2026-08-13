@@ -38,3 +38,18 @@ export interface StatusUpdateInput {
   schedule?: string | undefined;
   acceptsPets?: boolean | null;
 }
+
+/** Payload completo do painel: a instituição preenche todos os informativos. */
+export interface InstitutionProfileInput {
+  institutionId: string;
+  name: string;
+  kind: InstitutionKind;
+  neighborhood: string;
+  address?: string | undefined;
+  phone?: string | undefined;
+  schedule?: string | undefined;
+  audience?: string | undefined;
+  notes?: string | undefined;
+  status: AvailabilityStatus;
+  acceptsPets: boolean | null;
+}
