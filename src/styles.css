@@ -375,3 +375,7 @@ ion-card-header {
 ion-card {
   margin: 12px;
 }
+
+ion-card {
+  --background: #ffffff;
+}
