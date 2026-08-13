@@ -9,8 +9,41 @@
   "theme_color": "#0f5c63",
   "lang": "pt-BR",
   "icons": [
-    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "id": "/",
+  "orientation": "portrait",
+  "categories": [
+    "social",
+    "utilities"
+  ],
+  "shortcuts": [
+    {
+      "name": "Locais com vagas",
+      "short_name": "Com vagas",
+      "url": "/"
+    },
+    {
+      "name": "Sobre o projeto",
+      "short_name": "Sobre",
+      "url": "/sobre"
+    }
   ]
 }

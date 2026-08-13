@@ -12,6 +12,7 @@ import { useMemo, useState } from "react";
 import { AppHeader } from "@/components/AppHeader";
 import { DisclaimerNote } from "@/components/DisclaimerNote";
 import { InstitutionCard } from "@/components/InstitutionCard";
+import { InstallPwaButton } from "@/components/InstallPwaButton";
 import { useInstitutions } from "@/hooks/use-institutions";
 import { normalize } from "@/lib/format";
 import type { AvailabilityStatus } from "@/types/institution";
@@ -111,6 +112,7 @@ function HomePage() {
         )}
 
         <DisclaimerNote />
+        <InstallPwaButton />
       </IonContent>
     </IonPage>
   );

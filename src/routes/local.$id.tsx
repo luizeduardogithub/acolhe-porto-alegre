@@ -91,6 +91,21 @@ function DetalhesPage() {
         <IonList inset>
           <Info label="Tipo" value={institution.kind} />
           <Info label="Endereço" value={institution.address ?? "Não informado"} />
+          <IonItem lines="full">
+            <IonLabel className="ion-text-wrap">
+              <h3 className="info-label">Mapa</h3>
+              <p className="info-value">
+                <a
+                  className="map-link"
+                  href={mapsUrl(`${institution.name}, ${fullAddress}`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Abrir endereço no Google Maps
+                </a>
+              </p>
+            </IonLabel>
+          </IonItem>
           <Info label="Bairro" value={institution.neighborhood} />
           <Info label="Telefone" value={institution.phone ?? "Não informado"} />
           <Info label="Horário" value={institution.schedule ?? "Não informado"} />
