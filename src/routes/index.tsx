@@ -5,6 +5,33 @@ const TITLE = "AcolhePOA | Locais de acolhimento em Porto Alegre";
 const DESCRIPTION =
   "AcolhePOA reúne locais de acolhimento para pessoas em situação de rua em Porto Alegre, com situação de vagas informada por cada unidade. Protótipo demonstrativo.";
 
+const faq: { q: string; a: string }[] = [
+  {
+    q: "O AcolhePOA garante uma vaga de acolhimento?",
+    a: "Não. O aplicativo apenas mostra a situação informada por cada unidade. A vaga só é confirmada no próprio local, e a disponibilidade pode mudar a qualquer momento.",
+  },
+  {
+    q: "Os dados exibidos são reais?",
+    a: "Não. Esta versão é um protótipo demonstrativo e utiliza dados fictícios, criados apenas para mostrar como o aplicativo funcionaria.",
+  },
+  {
+    q: "Preciso instalar alguma coisa para usar?",
+    a: "Não. O AcolhePOA funciona pelo navegador do celular ou do computador. Se quiser, é possível adicioná-lo à tela inicial do celular e usá-lo como um aplicativo.",
+  },
+  {
+    q: "O aplicativo mostra quantas vagas existem?",
+    a: "Não. A informação é simplificada em três situações: com vagas, sem vagas ou não informado. Isso torna a atualização rápida para quem trabalha na unidade.",
+  },
+  {
+    q: "Como minha instituição pode participar?",
+    a: "A criação de conta depende de autorização. Basta falar com o desenvolvedor pelo WhatsApp (51) 99818-4976 e pedir a liberação do acesso da unidade.",
+  },
+  {
+    q: "O aplicativo coleta dados de quem consulta?",
+    a: "Não. Nesta versão não há cadastro, login real nem coleta de dados de quem consulta a lista de locais.",
+  },
+];
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
