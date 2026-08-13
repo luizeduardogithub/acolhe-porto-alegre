@@ -74,7 +74,6 @@ export const Route = createFileRoute("/")({
 });
 
 const features = [
-*** placeholder-remove ***
   {
     title: "Lista de locais",
     text: "Unidades de acolhimento organizadas por nome, bairro e endereço, com link direto para o mapa.",
