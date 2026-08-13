@@ -90,7 +90,7 @@ function PainelPage() {
           </p>
           <div className="panel-current">
             <StatusBadge status={institution.status} />
-            <span className="panel-updated">Atualizado {timeAgo(institution.updatedAt)}</span>
+            <span className="panel-updated">{timeAgo(institution.updatedAt)}</span>
           </div>
         </div>
 
