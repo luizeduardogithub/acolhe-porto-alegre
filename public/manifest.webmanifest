@@ -2,7 +2,7 @@
   "name": "AcolhePOA",
   "short_name": "AcolhePOA",
   "description": "Locais de acolhimento em Porto Alegre",
-  "start_url": "/",
+  "start_url": "/app",
   "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -38,7 +38,7 @@
     {
       "name": "Locais com vagas",
       "short_name": "Com vagas",
-      "url": "/"
+      "url": "/app"
     },
     {
       "name": "Sobre o projeto",

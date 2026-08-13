@@ -70,7 +70,7 @@ function DetalhesPage() {
 
   return (
     <IonPage>
-      <AppHeader title="Detalhes" backTo="/" />
+      <AppHeader title="Detalhes" backTo="/app" />
       <IonContent className="ion-padding">
         <IonCard>
           <IonCardHeader>

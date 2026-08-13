@@ -45,7 +45,7 @@ function EntrarPage() {
 
   return (
     <IonPage>
-      <AppHeader title="Área da instituição" backTo="/" />
+      <AppHeader title="Área da instituição" backTo="/app" />
       <IonContent>
         <div className="login-wrap">
           <div className="login-badge" aria-hidden="true">

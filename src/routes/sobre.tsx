@@ -38,7 +38,7 @@ function SobrePage() {
   const navigate = useNavigate();
   return (
     <IonPage>
-      <AppHeader title="Sobre o AcolhePOA" backTo="/" />
+      <AppHeader title="Sobre o AcolhePOA" backTo="/app" />
       <IonContent className="ion-padding">
         <IonCard>
           <IonCardHeader>
