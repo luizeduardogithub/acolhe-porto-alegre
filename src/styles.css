@@ -510,3 +510,201 @@ ion-card {
   font-size: 13px;
   color: #0f5c63;
 }
+
+/* ===== Painel administrativo (modo demonstração) ===== */
+.admin-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 8px 8px 32px;
+}
+
+.admin-intro {
+  padding: 16px 12px 4px;
+}
+
+.admin-intro h1 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0f5c63;
+}
+
+.admin-intro p {
+  margin: 6px 0 12px;
+  font-size: 0.875rem;
+  color: #4a5654;
+}
+
+.admin-grid {
+  padding: 0 4px;
+}
+
+.admin-stat {
+  margin: 6px;
+  --background: #ffffff;
+  border-left: 4px solid #cbd5d3;
+}
+
+.admin-stat--ok { border-left-color: var(--ion-color-success); }
+.admin-stat--bad { border-left-color: var(--ion-color-danger); }
+.admin-stat--warn { border-left-color: var(--ion-color-warning); }
+.admin-stat--stale { border-left-color: #d97706; }
+
+.admin-stat ion-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px;
+}
+
+.admin-stat-value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0f5c63;
+  line-height: 1.1;
+}
+
+.admin-stat-label {
+  font-size: 0.8125rem;
+  color: #4a5654;
+}
+
+.admin-section {
+  padding: 12px 4px 0;
+}
+
+.admin-section-title {
+  margin: 12px 12px 8px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #5c6a68;
+}
+
+.admin-cards {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+  padding: 8px 12px 0;
+}
+
+@media (min-width: 768px) {
+  .admin-cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1100px) {
+  .admin-cards { grid-template-columns: repeat(3, 1fr); }
+}
+
+.admin-card {
+  background: #ffffff;
+  border: 1px solid #e2e8e7;
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.admin-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.admin-card-head h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #14322f;
+}
+
+.admin-card-sub {
+  margin: 2px 0 0;
+  font-size: 0.8125rem;
+  color: #4a5654;
+}
+
+.admin-card-updated {
+  margin: 8px 0 4px;
+  font-size: 0.8125rem;
+  color: #5c6a68;
+}
+
+.stale-badge {
+  --background: #fff2dc;
+  --color: #a05207;
+  white-space: normal;
+  font-weight: 600;
+}
+
+.admin-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 10px;
+}
+
+.admin-card-actions ion-button {
+  text-transform: none;
+  --border-radius: 10px;
+}
+
+.admin-form,
+.admin-details {
+  padding: 8px 0 28px;
+}
+
+.admin-form-actions {
+  padding: 8px 16px;
+}
+
+.admin-form-actions ion-button {
+  text-transform: none;
+  --border-radius: 12px;
+}
+
+.admin-form-error {
+  margin: 4px 20px;
+  color: var(--ion-color-danger);
+  font-size: 0.8125rem;
+}
+
+.admin-form-meta {
+  font-size: 0.8125rem;
+  color: #5c6a68;
+}
+
+.admin-details-head {
+  padding: 16px 20px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.admin-details-head h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #0f5c63;
+}
+
+.admin-details-label {
+  margin: 0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #7a8785;
+}
+
+.admin-details-value {
+  font-size: 0.9375rem;
+  color: #14322f;
+  white-space: normal;
+}
+
+.admin-note {
+  display: block;
+  padding: 0 16px;
+  font-size: 0.875rem;
+}
