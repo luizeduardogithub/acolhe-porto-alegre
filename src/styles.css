@@ -732,3 +732,10 @@ ion-card {
 .whatsapp-button {
   margin: 0 16px 12px;
 }
+
+.login-divider {
+  margin: 20px 0 12px;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #5c6a68;
+}
