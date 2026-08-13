@@ -118,7 +118,7 @@ function AdminPage() {
         <IonToolbar color="primary">
           <IonTitle>Painel Administrativo</IonTitle>
           <IonButtons slot="end">
-            <IonButton onClick={() => navigate({ to: "/" })} aria-label="Ver app público">
+            <IonButton onClick={() => navigate({ to: "/app" })} aria-label="Ver app público">
               <IonIcon slot="icon-only" icon={globeOutline} />
             </IonButton>
           </IonButtons>

@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -134,13 +135,20 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  // A landing page é HTML puro e precisa ser renderizada no servidor (SEO);
+  // as rotas do app usam a casca Ionic, que é montada apenas no cliente.
+  const isSite = useRouterState({ select: (s) => s.location.pathname === "/" });
 
   return (
     <QueryClientProvider client={queryClient}>
-      <AppShell>
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+      {isSite ? (
         <Outlet />
-      </AppShell>
+      ) : (
+        <AppShell>
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <Outlet />
+        </AppShell>
+      )}
     </QueryClientProvider>
   );
 }

@@ -112,12 +112,12 @@ function PainelPage() {
 
   function handleSignOut() {
     signOutDemo();
-    navigate({ to: "/" });
+    navigate({ to: "/app" });
   }
 
   return (
     <IonPage>
-      <AppHeader title="Painel da instituição" backTo="/" />
+      <AppHeader title="Painel da instituição" backTo="/app" />
       <IonContent>
         <div className="panel-head">
           <p className="panel-user">Conectado como {session.name}</p>
