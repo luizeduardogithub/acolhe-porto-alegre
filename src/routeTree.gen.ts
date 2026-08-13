@@ -10,12 +10,24 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as EntrarRouteImport } from './routes/entrar'
+import { Route as PainelRouteImport } from './routes/painel'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as LocalIdRouteImport } from './routes/local.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EntrarRoute = EntrarRouteImport.update({
+  id: '/entrar',
+  path: '/entrar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PainelRoute = PainelRouteImport.update({
+  id: '/painel',
+  path: '/painel',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SobreRoute = SobreRouteImport.update({
@@ -31,30 +43,38 @@ const LocalIdRoute = LocalIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/entrar': typeof EntrarRoute
+  '/painel': typeof PainelRoute
   '/sobre': typeof SobreRoute
   '/local/$id': typeof LocalIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/entrar': typeof EntrarRoute
+  '/painel': typeof PainelRoute
   '/sobre': typeof SobreRoute
   '/local/$id': typeof LocalIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/entrar': typeof EntrarRoute
+  '/painel': typeof PainelRoute
   '/sobre': typeof SobreRoute
   '/local/$id': typeof LocalIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sobre' | '/local/$id'
+  fullPaths: '/' | '/entrar' | '/painel' | '/sobre' | '/local/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sobre' | '/local/$id'
-  id: '__root__' | '/' | '/sobre' | '/local/$id'
+  to: '/' | '/entrar' | '/painel' | '/sobre' | '/local/$id'
+  id: '__root__' | '/' | '/entrar' | '/painel' | '/sobre' | '/local/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EntrarRoute: typeof EntrarRoute
+  PainelRoute: typeof PainelRoute
   SobreRoute: typeof SobreRoute
   LocalIdRoute: typeof LocalIdRoute
 }
@@ -66,6 +86,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/entrar': {
+      id: '/entrar'
+      path: '/entrar'
+      fullPath: '/entrar'
+      preLoaderRoute: typeof EntrarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/painel': {
+      id: '/painel'
+      path: '/painel'
+      fullPath: '/painel'
+      preLoaderRoute: typeof PainelRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sobre': {
@@ -87,6 +121,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EntrarRoute: EntrarRoute,
+  PainelRoute: PainelRoute,
   SobreRoute: SobreRoute,
   LocalIdRoute: LocalIdRoute,
 }

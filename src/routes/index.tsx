@@ -60,7 +60,7 @@ function HomePage() {
 
   return (
     <IonPage>
-      <AppHeader title="AcolhePOA" showAbout />
+      <AppHeader title="AcolhePOA" showAbout showLogin />
       <IonContent>
         <section className="intro">
           <h1>AcolhePOA</h1>
