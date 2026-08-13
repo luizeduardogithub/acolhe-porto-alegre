@@ -151,15 +151,15 @@ const features = [
 
 function SitePage() {
   return (
-    <main className="min-h-screen bg-[#f4f7f6] text-[#14322f]">
-      <div className="mx-auto w-full max-w-3xl px-5 py-10">
+    <main className="site-page min-h-screen bg-[#f4f7f6] text-[#14322f]">
+      <div className="mx-auto w-full max-w-3xl px-4 py-8 sm:px-5 sm:py-10">
         <p className="inline-block rounded-full bg-[#0f5c63] px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
           Protótipo demonstrativo
         </p>
-        <h1 className="mt-5 text-4xl font-extrabold leading-tight text-[#0f5c63]">
+        <h1 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-[#0f5c63] sm:text-4xl">
           Ajude uma pessoa sem moradia a ter um local para dormir hoje
         </h1>
-        <p className="mt-4 text-lg text-[#3d514e]">
+        <p className="mt-3 text-base leading-relaxed text-[#3d514e] sm:text-lg">
           Pesquise por albergues gratuitos e locais de acolhimento em Porto Alegre, veja quem está
           com vagas agora e leve essa informação para quem precisa. Uma noite protegida pode começar
           com uma busca de dez segundos.
