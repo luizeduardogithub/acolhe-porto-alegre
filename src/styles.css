@@ -765,3 +765,56 @@ body:has(.site-page) {
 .site-page img {
   display: block;
 }
+
+/* Botões e links do site (fora de @layer para vencer o CSS global do Ionic). */
+.site-page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-page p a:not([class]) {
+  color: #0f5c63;
+  text-decoration: underline;
+}
+
+.site-btn {
+  display: inline-block;
+  border-radius: 14px;
+  padding: 14px 22px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+  background-color: #0f5c63;
+  color: #ffffff;
+  border: 2px solid #0f5c63;
+}
+
+.site-btn--outline {
+  background-color: transparent;
+  color: #0f5c63;
+  border-color: #0f5c63;
+}
+
+.site-btn--light {
+  background-color: #ffffff;
+  color: #0f5c63;
+  border-color: #ffffff;
+}
+
+.site-btn--outline-light {
+  background-color: transparent;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.site-btn--whatsapp {
+  background-color: #128c7e;
+  border-color: #128c7e;
+  color: #ffffff;
+}
+
+.site-page footer nav a {
+  color: #0f5c63;
+  font-weight: 600;
+}
