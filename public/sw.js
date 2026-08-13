@@ -1,5 +1,5 @@
 // Service worker do AcolhePOA (protótipo): cache do shell + fallback offline.
-const CACHE = "acolhepoa-v1";
+const CACHE = "acolhepoa-v2";
 const PRECACHE = ["/", "/manifest.webmanifest", "/favicon.png", "/icons/icon-192.png", "/icons/icon-512.png"];
 
 self.addEventListener("install", (event) => {
@@ -14,7 +14,10 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   const request = event.request;
-  if (request.method !== "GET" || new URL(request.url).origin !== self.location.origin) return;
+  const url = new URL(request.url);
+  if (request.method !== "GET" || url.origin !== self.location.origin) return;
+  // Nunca cachear módulos/recursos de desenvolvimento do Vite.
+  if (url.pathname.startsWith("/src/") || url.pathname.startsWith("/@") || url.pathname.startsWith("/node_modules/")) return;
 
   if (request.mode === "navigate") {
     event.respondWith(
