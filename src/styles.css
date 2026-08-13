@@ -767,14 +767,13 @@ body:has(.site-page) {
 }
 
 /* Botões e links do site (fora de @layer para vencer o CSS global do Ionic). */
-.site-page a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.site-page p a:not([class]) {
+.site-page a:not([class]) {
   color: #0f5c63;
   text-decoration: underline;
+}
+
+.site-page a[class] {
+  text-decoration: none;
 }
 
 .site-btn {
