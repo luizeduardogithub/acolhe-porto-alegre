@@ -1,5 +1,6 @@
 import { IonApp, setupIonicReact } from "@ionic/react";
 import { useEffect, useState, type ReactNode } from "react";
+import { registerServiceWorker } from "@/lib/pwa";
 
 /**
  * Casca Ionic única do app. Os componentes Ionic são web components que
@@ -15,6 +16,7 @@ export function AppShell({ children }: { children: ReactNode }) {
     // plataforma, o que causaria divergência de hidratação se rodasse no SSR.
     setupIonicReact({ mode: "ios" });
     setMounted(true);
+    registerServiceWorker();
   }, []);
 
   if (!mounted) return null;
