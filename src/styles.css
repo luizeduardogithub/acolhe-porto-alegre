@@ -148,7 +148,7 @@
    Cores acolhedoras (verde-petróleo), alto contraste e tipografia grande.
    ========================================================================== */
 
-:root {
+html:root {
   --ion-font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --ion-background-color: #f4f6f6;
   --ion-background-color-rgb: 244, 246, 246;
@@ -345,4 +345,25 @@ ion-segment-button {
   height: 52px;
   font-weight: 700;
   text-transform: none;
+}
+
+.status-badge {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 6px;
+  width: auto;
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: currentColor;
+  display: inline-block;
+}
+
+ion-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }

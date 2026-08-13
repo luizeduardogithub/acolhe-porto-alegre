@@ -1,6 +1,6 @@
 import { IonBadge } from "@ionic/react";
 import type { AvailabilityStatus } from "@/types/institution";
-import { STATUS_COLOR, STATUS_DOT, STATUS_LABEL } from "@/lib/status";
+import { STATUS_COLOR, STATUS_LABEL } from "@/lib/status";
 
 export function StatusBadge({ status }: { status: AvailabilityStatus }) {
   return (
@@ -9,7 +9,7 @@ export function StatusBadge({ status }: { status: AvailabilityStatus }) {
       className="status-badge"
       aria-label={`Situação: ${STATUS_LABEL[status]}`}
     >
-      <span aria-hidden="true">{STATUS_DOT[status]}</span> {STATUS_LABEL[status]}
+      <span className="status-dot" aria-hidden="true" /> {STATUS_LABEL[status]}
     </IonBadge>
   );
 }
