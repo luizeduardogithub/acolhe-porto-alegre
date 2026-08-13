@@ -1,4 +1,8 @@
-@import "tailwindcss" source(none);
+/* Preflight do Tailwind desativado: ele zera margens/paddings de todos os
+   elementos e quebra o layout dos componentes Ionic. Mantemos tema + utilitários. */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme) source(none);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
 @source "../src";
 @import "tw-animate-css";
 
@@ -366,4 +370,8 @@ ion-card-header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+ion-card {
+  margin: 12px;
 }
