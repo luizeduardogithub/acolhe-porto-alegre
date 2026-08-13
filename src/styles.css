@@ -708,3 +708,9 @@ ion-card {
   padding: 0 16px;
   font-size: 0.875rem;
 }
+
+.admin-card-head ion-badge {
+  flex: 0 0 auto;
+  white-space: normal;
+  text-align: right;
+}
