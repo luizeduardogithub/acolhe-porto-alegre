@@ -739,3 +739,29 @@ ion-card {
   font-size: 0.875rem;
   color: #5c6a68;
 }
+
+/* ==========================================================================
+   Landing page (rota "/") — o Ionic fixa o <body> (position: fixed; overflow:
+   hidden) para o app; o site institucional precisa rolar normalmente.
+   ========================================================================== */
+
+html:has(.site-page),
+body:has(.site-page) {
+  position: static;
+  height: auto;
+  min-height: 100%;
+  max-height: none;
+  overflow: visible;
+  overflow-y: auto;
+  touch-action: auto;
+  overscroll-behavior-y: auto;
+  transform: none;
+}
+
+.site-page {
+  -webkit-overflow-scrolling: touch;
+}
+
+.site-page img {
+  display: block;
+}
