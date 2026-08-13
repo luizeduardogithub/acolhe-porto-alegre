@@ -8,6 +8,8 @@ import {
   IonPage,
 } from "@ionic/react";
 import { AppHeader } from "@/components/AppHeader";
+import { IonButton } from "@ionic/react";
+import { useNavigate } from "@tanstack/react-router";
 import { DisclaimerNote } from "@/components/DisclaimerNote";
 
 export const Route = createFileRoute("/sobre")({
@@ -33,6 +35,7 @@ export const Route = createFileRoute("/sobre")({
 });
 
 function SobrePage() {
+  const navigate = useNavigate();
   return (
     <IonPage>
       <AppHeader title="Sobre o AcolhePOA" backTo="/" />
@@ -69,6 +72,18 @@ function SobrePage() {
         </IonCard>
 
         <DisclaimerNote />
+
+        <div className="ion-padding-vertical">
+          <IonButton
+            expand="block"
+            fill="clear"
+            size="small"
+            color="medium"
+            onClick={() => navigate({ to: "/admin" })}
+          >
+            Painel administrativo (demonstração)
+          </IonButton>
+        </div>
       </IonContent>
     </IonPage>
   );

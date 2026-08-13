@@ -12,7 +12,7 @@ import { useMemo, useState } from "react";
 import { AppHeader } from "@/components/AppHeader";
 import { DisclaimerNote } from "@/components/DisclaimerNote";
 import { InstitutionCard } from "@/components/InstitutionCard";
-import { listInstitutions } from "@/lib/institutions-service";
+import { useInstitutions } from "@/hooks/use-institutions";
 import { normalize } from "@/lib/format";
 import type { AvailabilityStatus } from "@/types/institution";
 
@@ -43,7 +43,7 @@ type Filter = "ALL" | AvailabilityStatus;
 function HomePage() {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<Filter>("ALL");
-  const all = listInstitutions();
+  const all = useInstitutions();
 
   const results = useMemo(() => {
     const q = normalize(query.trim());
