@@ -178,7 +178,7 @@ function SitePage() {
         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
           <Link
             to="/app"
-            className="rounded-xl bg-[#0f5c63] px-6 py-3 text-center text-base font-bold text-white"
+            className="site-btn"
           >
             Pesquisar albergues gratuitos
           </Link>
@@ -186,7 +186,7 @@ function SitePage() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-xl border-2 border-[#0f5c63] px-6 py-3 text-center text-base font-bold text-[#0f5c63]"
+            className="site-btn site-btn--outline"
           >
             Falar no WhatsApp
           </a>
@@ -266,7 +266,7 @@ function SitePage() {
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Link
               to="/app"
-              className="rounded-xl bg-white px-6 py-3 text-center text-base font-bold text-[#0f5c63]"
+              className="site-btn site-btn--light"
             >
               Buscar vagas agora
             </Link>
@@ -274,7 +274,7 @@ function SitePage() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-xl border-2 border-white px-6 py-3 text-center text-base font-bold text-white"
+              className="site-btn site-btn--outline-light"
             >
               Compartilhar no WhatsApp
             </a>
@@ -491,7 +491,7 @@ function SitePage() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-block rounded-xl bg-[#128c7e] px-6 py-3 text-base font-bold text-white"
+            className="site-btn site-btn--whatsapp mt-4"
           >
             Falar com {DEVELOPER_NAME} no WhatsApp
           </a>
