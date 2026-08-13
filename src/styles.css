@@ -827,3 +827,12 @@ body:has(.site-page) {
 .site-page ol.list-none,
 .site-page ul { list-style: none; }
 .site-page section ul li { line-height: 1.6; }
+
+.site-page h1 { font-size: 1.9rem; line-height: 1.15; margin: 0; }
+.site-page h2 { font-size: 1.4rem; line-height: 1.25; margin: 0; }
+.site-page h3 { font-size: 1.02rem; line-height: 1.3; margin: 0; }
+
+@media (min-width: 640px) {
+  .site-page h1 { font-size: 2.35rem; }
+  .site-page h2 { font-size: 1.6rem; }
+}
