@@ -9,6 +9,9 @@ import {
   IonText,
 } from "@ionic/react";
 import { useMemo, useState } from "react";
+import { IonButton, IonIcon } from "@ionic/react";
+import { shieldCheckmarkOutline } from "ionicons/icons";
+import { useNavigate } from "@tanstack/react-router";
 import { AppHeader } from "@/components/AppHeader";
 import { DisclaimerNote } from "@/components/DisclaimerNote";
 import { InstitutionCard } from "@/components/InstitutionCard";
@@ -45,6 +48,7 @@ function HomePage() {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<Filter>("ALL");
   const all = useInstitutions();
+  const navigate = useNavigate();
 
   const results = useMemo(() => {
     const q = normalize(query.trim());
@@ -113,6 +117,17 @@ function HomePage() {
 
         <DisclaimerNote />
         <InstallPwaButton />
+        <IonButton
+          expand="block"
+          fill="clear"
+          size="small"
+          color="medium"
+          className="admin-link"
+          onClick={() => navigate({ to: "/admin" })}
+        >
+          <IonIcon slot="start" icon={shieldCheckmarkOutline} aria-hidden="true" />
+          Painel administrativo
+        </IonButton>
       </IonContent>
     </IonPage>
   );
