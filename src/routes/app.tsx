@@ -10,7 +10,7 @@ import {
 } from "@ionic/react";
 import { useMemo, useState } from "react";
 import { IonButton, IonIcon } from "@ionic/react";
-import { shieldCheckmarkOutline } from "ionicons/icons";
+import { globeOutline, shieldCheckmarkOutline } from "ionicons/icons";
 import { useNavigate } from "@tanstack/react-router";
 import { AppHeader } from "@/components/AppHeader";
 import { DisclaimerNote } from "@/components/DisclaimerNote";
