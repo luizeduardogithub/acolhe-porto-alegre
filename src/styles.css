@@ -714,3 +714,13 @@ ion-card {
   white-space: normal;
   text-align: right;
 }
+
+/* Links de mapa e botão de instalação do PWA */
+.map-link {
+  color: var(--ion-color-primary);
+  font-weight: 600;
+  text-decoration: underline;
+}
+.install-pwa {
+  margin: 12px 16px 24px;
+}
