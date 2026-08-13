@@ -817,3 +817,13 @@ body:has(.site-page) {
   color: #0f5c63;
   font-weight: 600;
 }
+
+/* Tipografia do site (fora de @layer, pois o Ionic redefine h1..h4 e listas). */
+.site-page h1 { font-weight: 800; letter-spacing: -0.02em; }
+.site-page h2 { font-weight: 800; }
+.site-page h3 { font-weight: 700; }
+.site-page ol,
+.site-page ul { padding-left: 0; }
+.site-page ol.list-none,
+.site-page ul { list-style: none; }
+.site-page section ul li { line-height: 1.6; }

@@ -249,7 +249,7 @@ function SitePage() {
           <h2 id="ajudar" className="text-2xl font-extrabold">
             Como você pode ajudar em 3 minutos
           </h2>
-          <ol className="mt-4 space-y-3 text-[#e3f1ef]">
+          <ol className="mt-4 list-none space-y-3 pl-0 text-[#e3f1ef]">
             <li>
               <strong>1. Pesquise.</strong> Abra o app e procure albergues gratuitos com vagas perto
               de onde a pessoa está.
@@ -324,7 +324,7 @@ function SitePage() {
           <h2 id="como-funciona" className="text-2xl font-extrabold text-[#0f5c63]">
             Como funciona
           </h2>
-          <ol className="mt-4 space-y-3 text-[#3d514e]">
+          <ol className="mt-4 list-none space-y-3 pl-0 text-[#3d514e]">
             <li>
               <strong>1.</strong> A instituição acessa a área restrita e preenche os dados da
               unidade.
