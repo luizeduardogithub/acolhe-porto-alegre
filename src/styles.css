@@ -739,3 +739,100 @@ ion-card {
   font-size: 0.875rem;
   color: #5c6a68;
 }
+
+/* ==========================================================================
+   Landing page (rota "/") — o Ionic fixa o <body> (position: fixed; overflow:
+   hidden) para o app; o site institucional precisa rolar normalmente.
+   ========================================================================== */
+
+html:has(.site-page),
+body:has(.site-page) {
+  position: static;
+  height: auto;
+  min-height: 100%;
+  max-height: none;
+  overflow: visible;
+  overflow-y: auto;
+  touch-action: auto;
+  overscroll-behavior-y: auto;
+  transform: none;
+}
+
+.site-page {
+  -webkit-overflow-scrolling: touch;
+}
+
+.site-page img {
+  display: block;
+}
+
+/* Botões e links do site (fora de @layer para vencer o CSS global do Ionic). */
+.site-page a:not([class]) {
+  color: #0f5c63;
+  text-decoration: underline;
+}
+
+.site-page a[class] {
+  text-decoration: none;
+}
+
+.site-btn {
+  display: inline-block;
+  border-radius: 14px;
+  padding: 14px 22px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+  background-color: #0f5c63;
+  color: #ffffff;
+  border: 2px solid #0f5c63;
+}
+
+.site-btn--outline {
+  background-color: transparent;
+  color: #0f5c63;
+  border-color: #0f5c63;
+}
+
+.site-btn--light {
+  background-color: #ffffff;
+  color: #0f5c63;
+  border-color: #ffffff;
+}
+
+.site-btn--outline-light {
+  background-color: transparent;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.site-btn--whatsapp {
+  background-color: #128c7e;
+  border-color: #128c7e;
+  color: #ffffff;
+}
+
+.site-page footer nav a {
+  color: #0f5c63;
+  font-weight: 600;
+}
+
+/* Tipografia do site (fora de @layer, pois o Ionic redefine h1..h4 e listas). */
+.site-page h1 { font-weight: 800; letter-spacing: -0.02em; }
+.site-page h2 { font-weight: 800; }
+.site-page h3 { font-weight: 700; }
+.site-page ol,
+.site-page ul { padding-left: 0; }
+.site-page ol.list-none,
+.site-page ul { list-style: none; }
+.site-page section ul li { line-height: 1.6; }
+
+.site-page h1 { font-size: 1.9rem; line-height: 1.15; margin: 0; }
+.site-page h2 { font-size: 1.4rem; line-height: 1.25; margin: 0; }
+.site-page h3 { font-size: 1.02rem; line-height: 1.3; margin: 0; }
+
+@media (min-width: 640px) {
+  .site-page h1 { font-size: 2.35rem; }
+  .site-page h2 { font-size: 1.6rem; }
+}

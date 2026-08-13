@@ -151,15 +151,15 @@ const features = [
 
 function SitePage() {
   return (
-    <main className="min-h-screen bg-[#f4f7f6] text-[#14322f]">
-      <div className="mx-auto w-full max-w-3xl px-5 py-10">
+    <main className="site-page min-h-screen bg-[#f4f7f6] text-[#14322f]">
+      <div className="mx-auto w-full max-w-3xl px-4 py-8 sm:px-5 sm:py-10">
         <p className="inline-block rounded-full bg-[#0f5c63] px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
           Protótipo demonstrativo
         </p>
-        <h1 className="mt-5 text-4xl font-extrabold leading-tight text-[#0f5c63]">
+        <h1 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-[#0f5c63] sm:text-4xl">
           Ajude uma pessoa sem moradia a ter um local para dormir hoje
         </h1>
-        <p className="mt-4 text-lg text-[#3d514e]">
+        <p className="mt-3 text-base leading-relaxed text-[#3d514e] sm:text-lg">
           Pesquise por albergues gratuitos e locais de acolhimento em Porto Alegre, veja quem está
           com vagas agora e leve essa informação para quem precisa. Uma noite protegida pode começar
           com uma busca de dez segundos.
@@ -178,7 +178,7 @@ function SitePage() {
         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
           <Link
             to="/app"
-            className="rounded-xl bg-[#0f5c63] px-6 py-3 text-center text-base font-bold text-white"
+            className="site-btn"
           >
             Pesquisar albergues gratuitos
           </Link>
@@ -186,7 +186,7 @@ function SitePage() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-xl border-2 border-[#0f5c63] px-6 py-3 text-center text-base font-bold text-[#0f5c63]"
+            className="site-btn site-btn--outline"
           >
             Falar no WhatsApp
           </a>
@@ -249,7 +249,7 @@ function SitePage() {
           <h2 id="ajudar" className="text-2xl font-extrabold">
             Como você pode ajudar em 3 minutos
           </h2>
-          <ol className="mt-4 space-y-3 text-[#e3f1ef]">
+          <ol className="mt-4 list-none space-y-3 pl-0 text-[#e3f1ef]">
             <li>
               <strong>1. Pesquise.</strong> Abra o app e procure albergues gratuitos com vagas perto
               de onde a pessoa está.
@@ -266,7 +266,7 @@ function SitePage() {
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Link
               to="/app"
-              className="rounded-xl bg-white px-6 py-3 text-center text-base font-bold text-[#0f5c63]"
+              className="site-btn site-btn--light"
             >
               Buscar vagas agora
             </Link>
@@ -274,7 +274,7 @@ function SitePage() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-xl border-2 border-white px-6 py-3 text-center text-base font-bold text-white"
+              className="site-btn site-btn--outline-light"
             >
               Compartilhar no WhatsApp
             </a>
@@ -324,7 +324,7 @@ function SitePage() {
           <h2 id="como-funciona" className="text-2xl font-extrabold text-[#0f5c63]">
             Como funciona
           </h2>
-          <ol className="mt-4 space-y-3 text-[#3d514e]">
+          <ol className="mt-4 list-none space-y-3 pl-0 text-[#3d514e]">
             <li>
               <strong>1.</strong> A instituição acessa a área restrita e preenche os dados da
               unidade.
@@ -491,7 +491,7 @@ function SitePage() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-block rounded-xl bg-[#128c7e] px-6 py-3 text-base font-bold text-white"
+            className="site-btn site-btn--whatsapp mt-4"
           >
             Falar com {DEVELOPER_NAME} no WhatsApp
           </a>
