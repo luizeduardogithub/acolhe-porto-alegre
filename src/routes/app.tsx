@@ -20,7 +20,7 @@ import { useInstitutions } from "@/hooks/use-institutions";
 import { normalize } from "@/lib/format";
 import type { AvailabilityStatus } from "@/types/institution";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/app")({
   head: () => ({
     meta: [
       { title: "AcolhePOA | Locais de acolhimento em Porto Alegre" },
