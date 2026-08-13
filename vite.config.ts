@@ -12,4 +12,11 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  vite: {
+    ssr: {
+      // Ionic ships directory-style ESM imports that Node cannot resolve at
+      // runtime; bundling it into the SSR build fixes the resolution.
+      noExternal: ["@ionic/react", "@ionic/core", "ionicons"],
+    },
+  },
 });
