@@ -66,7 +66,7 @@ function HomePage() {
 
   return (
     <IonPage>
-      <AppHeader title="AcolhePOA" showAbout showLogin />
+      <AppHeader title="AcolhePOA" showAbout showLogin showSite />
       <IonContent>
         <section className="intro">
           <h1>AcolhePOA</h1>
@@ -119,6 +119,17 @@ function HomePage() {
         <DisclaimerNote />
         <InstallPwaButton />
         <WhatsAppButton />
+        <IonButton
+          expand="block"
+          fill="clear"
+          size="small"
+          color="medium"
+          className="admin-link"
+          onClick={() => navigate({ to: "/" })}
+        >
+          <IonIcon slot="start" icon={globeOutline} aria-hidden="true" />
+          Voltar para o site
+        </IonButton>
         <IonButton
           expand="block"
           fill="clear"
