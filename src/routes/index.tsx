@@ -1,9 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { DEVELOPER_NAME, DEVELOPER_PHONE_DISPLAY, WHATSAPP_URL } from "@/lib/contact";
+import heroImg from "@/assets/acolhimento-hero.jpg";
+import quartoImg from "@/assets/albergue-quarto.jpg";
+import buscaImg from "@/assets/busca-celular.jpg";
+import petImg from "@/assets/acolhimento-pet.jpg";
 
-const TITLE = "AcolhePOA | Locais de acolhimento em Porto Alegre";
+const TITLE = "AcolhePOA | Albergues gratuitos em Porto Alegre";
 const DESCRIPTION =
-  "AcolhePOA reúne locais de acolhimento para pessoas em situação de rua em Porto Alegre, com situação de vagas informada por cada unidade. Protótipo demonstrativo.";
+  "Ajude uma pessoa sem moradia a ter um local para dormir: pesquise albergues gratuitos e locais de acolhimento em Porto Alegre e veja a situação de vagas. Protótipo demonstrativo.";
 
 const faq: { q: string; a: string }[] = [
   {
