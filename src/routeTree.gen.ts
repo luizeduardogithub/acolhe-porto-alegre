@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as EntrarRouteImport } from './routes/entrar'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as LocalIdRouteImport } from './routes/local.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EntrarRoute = EntrarRouteImport.update({
+  id: '/entrar',
+  path: '/entrar',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SobreRoute = SobreRouteImport.update({
@@ -31,30 +37,34 @@ const LocalIdRoute = LocalIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/entrar': typeof EntrarRoute
   '/sobre': typeof SobreRoute
   '/local/$id': typeof LocalIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/entrar': typeof EntrarRoute
   '/sobre': typeof SobreRoute
   '/local/$id': typeof LocalIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/entrar': typeof EntrarRoute
   '/sobre': typeof SobreRoute
   '/local/$id': typeof LocalIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sobre' | '/local/$id'
+  fullPaths: '/' | '/entrar' | '/sobre' | '/local/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sobre' | '/local/$id'
-  id: '__root__' | '/' | '/sobre' | '/local/$id'
+  to: '/' | '/entrar' | '/sobre' | '/local/$id'
+  id: '__root__' | '/' | '/entrar' | '/sobre' | '/local/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EntrarRoute: typeof EntrarRoute
   SobreRoute: typeof SobreRoute
   LocalIdRoute: typeof LocalIdRoute
 }
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/entrar': {
+      id: '/entrar'
+      path: '/entrar'
+      fullPath: '/entrar'
+      preLoaderRoute: typeof EntrarRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sobre': {
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EntrarRoute: EntrarRoute,
   SobreRoute: SobreRoute,
   LocalIdRoute: LocalIdRoute,
 }
