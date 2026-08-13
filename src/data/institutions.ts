@@ -83,7 +83,8 @@ export const institutions: Institution[] = [
     neighborhood: "Vila Nova",
     address: "Estrada Aracaju, 650",
     status: "UNKNOWN",
-    updatedAt: minutesAgo(510),
+    // Exemplo de informação desatualizada (mais de 24h) para demonstração.
+    updatedAt: minutesAgo(1860),
     acceptsPets: null,
   },
   {

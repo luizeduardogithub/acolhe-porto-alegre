@@ -53,3 +53,34 @@ export interface InstitutionProfileInput {
   status: AvailabilityStatus;
   acceptsPets: boolean | null;
 }
+
+/** Dados de criação de uma nova instituição (o id é gerado pelo serviço). */
+export type NewInstitutionInput = Omit<InstitutionProfileInput, "institutionId">;
+
+/**
+ * Papéis previstos para quando o backend existir.
+ * ATENÇÃO (segurança futura): estes papéis são apenas para a interface do
+ * protótipo. Quando o backend for implementado, as permissões NÃO podem ser
+ * controladas apenas no cliente — a autorização precisa ser garantida no
+ * banco/servidor (ex.: RLS), de forma que:
+ *  - uma instituição não consiga editar os dados de outra;
+ *  - usuários públicos não consigam alterar nenhum dado;
+ *  - somente administradores possam criar/excluir instituições.
+ */
+export type UserRole = "ADMIN" | "INSTITUTION" | "PUBLIC";
+
+/** Registro de auditoria (estrutura preparada para o futuro banco). */
+export interface AuditEntry {
+  id: string;
+  institutionId: string;
+  institutionName: string;
+  /** Descrição curta da alteração realizada. */
+  action: "CREATE" | "UPDATE" | "STATUS_CHANGE" | "DELETE";
+  description: string;
+  previousStatus?: AvailabilityStatus | undefined;
+  newStatus?: AvailabilityStatus | undefined;
+  /** Usuário responsável — hoje demonstrativo. */
+  actor: string;
+  actorRole: UserRole;
+  createdAt: string;
+}

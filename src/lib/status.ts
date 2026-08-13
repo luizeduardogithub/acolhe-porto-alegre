@@ -20,10 +20,10 @@ export const STATUS_DOT: Record<AvailabilityStatus, string> = {
 };
 
 /**
- * Janela após a qual, no futuro, um status sem atualização deverá ser
- * considerado "Não informado". A regra ainda não é aplicada.
+ * Janela (24h) após a qual a informação é sinalizada como desatualizada.
+ * Atenção: "desatualizado" NÃO altera a situação informada pela unidade.
  */
-export const STALE_AFTER_MINUTES = 720;
+export const STALE_AFTER_MINUTES = 1440;
 
 export function isStatus(value: string): value is AvailabilityStatus {
   return value === "AVAILABLE" || value === "FULL" || value === "UNKNOWN";
