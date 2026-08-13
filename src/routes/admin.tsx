@@ -12,7 +12,7 @@ import {
   IonToast,
   IonToolbar,
 } from "@ionic/react";
-import { addOutline, closeOutline } from "ionicons/icons";
+import { addOutline, closeOutline, globeOutline } from "ionicons/icons";
 import { useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { AdminStats } from "@/components/admin/AdminStats";
@@ -116,9 +116,11 @@ function AdminPage() {
     <IonPage>
       <IonHeader>
         <IonToolbar color="primary">
-          <IonTitle>Painel Administrativo — modo demonstração</IonTitle>
+          <IonTitle>Painel Administrativo</IonTitle>
           <IonButtons slot="end">
-            <IonButton onClick={() => navigate({ to: "/" })}>Ver app público</IonButton>
+            <IonButton onClick={() => navigate({ to: "/" })} aria-label="Ver app público">
+              <IonIcon slot="icon-only" icon={globeOutline} />
+            </IonButton>
           </IonButtons>
         </IonToolbar>
       </IonHeader>
