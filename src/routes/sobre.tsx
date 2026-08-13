@@ -11,6 +11,7 @@ import { AppHeader } from "@/components/AppHeader";
 import { IonButton } from "@ionic/react";
 import { useNavigate } from "@tanstack/react-router";
 import { DisclaimerNote } from "@/components/DisclaimerNote";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 export const Route = createFileRoute("/sobre")({
   head: () => ({
@@ -72,6 +73,7 @@ function SobrePage() {
         </IonCard>
 
         <DisclaimerNote />
+        <WhatsAppButton />
 
         <div className="ion-padding-vertical">
           <IonButton
