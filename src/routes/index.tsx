@@ -73,6 +73,51 @@ export const Route = createFileRoute("/")({
   component: SitePage,
 });
 
+const audiences = [
+  {
+    title: "Quem precisa de acolhimento",
+    text: "Pessoas em situação de rua que buscam um local para dormir, se alimentar, tomar banho ou guardar seus pertences.",
+  },
+  {
+    title: "Quem ajuda",
+    text: "Familiares, vizinhos, voluntários e coletivos que querem orientar alguém sobre onde procurar acolhimento.",
+  },
+  {
+    title: "Serviços e instituições",
+    text: "Equipes de abordagem social, saúde, assistência e as próprias unidades, que informam sua situação de vagas.",
+  },
+];
+
+const statuses = [
+  {
+    dot: "🟢",
+    label: "Vagas disponíveis",
+    text: "A unidade informou que há vagas no momento. Ainda assim, é preciso confirmar no local.",
+  },
+  {
+    dot: "🔴",
+    label: "Sem vagas",
+    text: "A unidade informou que está lotada. Vale consultar outras unidades próximas na lista.",
+  },
+  {
+    dot: "🟡",
+    label: "Não informado",
+    text: "A unidade ainda não atualizou a situação. Ligue para o telefone indicado antes de se deslocar.",
+  },
+];
+
+const institutionFields = [
+  "Nome da unidade",
+  "Tipo de serviço",
+  "Bairro e endereço completo",
+  "Público atendido",
+  "Telefone de contato",
+  "Horário de funcionamento",
+  "Se aceita animais de estimação",
+  "Observações e critérios de acesso",
+  "Situação atual das vagas",
+];
+
 const features = [
   {
     title: "Lista de locais",
