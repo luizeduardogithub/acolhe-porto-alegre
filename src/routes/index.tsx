@@ -177,6 +177,145 @@ function SitePage() {
           </ol>
         </section>
 
+        <section className="mt-12" aria-labelledby="para-quem">
+          <h2 id="para-quem" className="text-2xl font-extrabold text-[#0f5c63]">
+            Para quem é o AcolhePOA
+          </h2>
+          <div className="mt-5 grid gap-4 sm:grid-cols-3">
+            {audiences.map((a) => (
+              <article key={a.title} className="rounded-xl bg-white p-4 shadow-sm">
+                <h3 className="text-base font-bold text-[#14322f]">{a.title}</h3>
+                <p className="mt-1 text-sm text-[#4a5654]">{a.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-12" aria-labelledby="situacoes">
+          <h2 id="situacoes" className="text-2xl font-extrabold text-[#0f5c63]">
+            As três situações de vaga
+          </h2>
+          <p className="mt-3 text-[#3d514e]">
+            O aplicativo não exibe quantidade de vagas. A informação é simples justamente para que a
+            equipe da unidade consiga atualizar em segundos, mesmo em dias de grande movimento.
+          </p>
+          <ul className="mt-5 space-y-3">
+            {statuses.map((s) => (
+              <li key={s.label} className="flex gap-3 rounded-xl bg-white p-4 shadow-sm">
+                <span aria-hidden="true" className="text-xl">
+                  {s.dot}
+                </span>
+                <span>
+                  <strong className="block text-[#14322f]">{s.label}</strong>
+                  <span className="text-sm text-[#4a5654]">{s.text}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="mt-12" aria-labelledby="instituicoes">
+          <h2 id="instituicoes" className="text-2xl font-extrabold text-[#0f5c63]">
+            O que cada instituição informa
+          </h2>
+          <p className="mt-3 text-[#3d514e]">
+            A própria unidade é responsável pelo seu cadastro. No painel da instituição é possível
+            preencher e atualizar:
+          </p>
+          <ul className="mt-4 grid gap-2 text-[#3d514e] sm:grid-cols-2">
+            {institutionFields.map((f) => (
+              <li key={f} className="rounded-lg bg-white px-3 py-2 text-sm shadow-sm">
+                {f}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-4 text-sm text-[#4a5654]">
+            Toda alteração registra data e hora. Quando uma unidade fica mais de 24 horas sem
+            atualizar, o sistema sinaliza a informação como desatualizada — no aplicativo e no painel
+            administrativo.
+          </p>
+        </section>
+
+        <section className="mt-12" aria-labelledby="acessibilidade">
+          <h2 id="acessibilidade" className="text-2xl font-extrabold text-[#0f5c63]">
+            Feito para usar na rua
+          </h2>
+          <ul className="mt-4 space-y-2 text-[#3d514e]">
+            <li>Linguagem simples, sem jargão técnico ou siglas.</li>
+            <li>Botões grandes e textos com bom contraste, pensados para telas pequenas.</li>
+            <li>Endereço com link direto para o mapa e telefone que disca com um toque.</li>
+            <li>Pode ser instalado na tela inicial e abre rápido, mesmo em conexões instáveis.</li>
+            <li>Sem cadastro para consultar: qualquer pessoa acessa a lista de imediato.</li>
+          </ul>
+        </section>
+
+        <section className="mt-12" aria-labelledby="privacidade">
+          <h2 id="privacidade" className="text-2xl font-extrabold text-[#0f5c63]">
+            Privacidade e limitações
+          </h2>
+          <ul className="mt-4 space-y-2 text-[#3d514e]">
+            <li>Não há coleta de dados pessoais de quem consulta o aplicativo.</li>
+            <li>Não existe login real: a área da instituição é apenas uma simulação navegável.</li>
+            <li>
+              Nesta versão, as informações preenchidas ficam salvas apenas no próprio aparelho, para
+              demonstração.
+            </li>
+            <li>
+              O AcolhePOA não tem vínculo oficial com prefeitura, órgãos públicos ou instituições.
+            </li>
+          </ul>
+        </section>
+
+        <section className="mt-12" aria-labelledby="emergencia">
+          <h2 id="emergencia" className="text-2xl font-extrabold text-[#0f5c63]">
+            Em situação de emergência
+          </h2>
+          <p className="mt-3 text-[#3d514e]">
+            O AcolhePOA é informativo e não substitui os serviços de emergência. Em caso de risco à
+            vida, procure atendimento imediato:
+          </p>
+          <ul className="mt-4 space-y-2 text-[#3d514e]">
+            <li>
+              <strong>192</strong> — SAMU (emergências de saúde)
+            </li>
+            <li>
+              <strong>193</strong> — Corpo de Bombeiros
+            </li>
+            <li>
+              <strong>190</strong> — Polícia Militar
+            </li>
+            <li>
+              <strong>100</strong> — Disque Direitos Humanos
+            </li>
+          </ul>
+        </section>
+
+        <section className="mt-12" aria-labelledby="perguntas">
+          <h2 id="perguntas" className="text-2xl font-extrabold text-[#0f5c63]">
+            Perguntas frequentes
+          </h2>
+          <div className="mt-5 space-y-3">
+            {faq.map((item) => (
+              <article key={item.q} className="rounded-xl bg-white p-4 shadow-sm">
+                <h3 className="text-base font-bold text-[#14322f]">{item.q}</h3>
+                <p className="mt-1 text-sm text-[#4a5654]">{item.a}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-12" aria-labelledby="tecnologia">
+          <h2 id="tecnologia" className="text-2xl font-extrabold text-[#0f5c63]">
+            Como o protótipo foi construído
+          </h2>
+          <p className="mt-3 text-[#3d514e]">
+            Aplicativo web em React com TypeScript e componentes Ionic, com aparência de app nativo
+            no celular. Pode ser instalado na tela inicial (PWA) e está preparado para receber, em
+            uma próxima etapa, login real das instituições e uma base de dados central com histórico
+            de atualizações.
+          </p>
+        </section>
+
         <section className="mt-12" aria-labelledby="contato">
           <h2 id="contato" className="text-2xl font-extrabold text-[#0f5c63]">
             Fale com o desenvolvedor
