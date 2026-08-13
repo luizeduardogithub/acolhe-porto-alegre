@@ -1,15 +1,18 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import {
+  IonIcon,
   IonButton,
   IonContent,
   IonNote,
   IonPage,
   IonSpinner,
 } from "@ionic/react";
+import { logoWhatsapp } from "ionicons/icons";
 import { useState } from "react";
 import { AppHeader } from "@/components/AppHeader";
 import { GoogleMark } from "@/components/GoogleMark";
 import { signInDemo } from "@/lib/demo-session";
+import { WHATSAPP_ACCESS_URL } from "@/lib/contact";
 
 export const Route = createFileRoute("/entrar")({
   head: () => ({
@@ -78,6 +81,27 @@ function EntrarPage() {
 
           <IonNote className="login-note">
             Protótipo navegável: nenhum login real é realizado e nenhum dado é enviado.
+          </IonNote>
+
+          <div className="login-divider">
+            <span>Ainda não tem conta?</span>
+          </div>
+
+          <IonButton
+            expand="block"
+            fill="outline"
+            color="success"
+            href={WHATSAPP_ACCESS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <IonIcon slot="start" icon={logoWhatsapp} aria-hidden="true" />
+            Criar conta com Google
+          </IonButton>
+          <IonNote className="login-note">
+            A criação de conta depende de autorização. Ao tocar acima, você pede a autorização a
+            Eduardo pelo WhatsApp (51) 99818-4976; depois disso, o acesso com Google é liberado para
+            a instituição.
           </IonNote>
         </div>
       </IonContent>

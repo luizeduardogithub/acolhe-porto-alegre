@@ -10,7 +10,7 @@ import {
 } from "@ionic/react";
 import { useMemo, useState } from "react";
 import { IonButton, IonIcon } from "@ionic/react";
-import { shieldCheckmarkOutline } from "ionicons/icons";
+import { globeOutline, shieldCheckmarkOutline } from "ionicons/icons";
 import { useNavigate } from "@tanstack/react-router";
 import { AppHeader } from "@/components/AppHeader";
 import { DisclaimerNote } from "@/components/DisclaimerNote";
@@ -66,7 +66,7 @@ function HomePage() {
 
   return (
     <IonPage>
-      <AppHeader title="AcolhePOA" showAbout showLogin />
+      <AppHeader title="AcolhePOA" showAbout showLogin showSite />
       <IonContent>
         <section className="intro">
           <h1>AcolhePOA</h1>
@@ -119,6 +119,17 @@ function HomePage() {
         <DisclaimerNote />
         <InstallPwaButton />
         <WhatsAppButton />
+        <IonButton
+          expand="block"
+          fill="clear"
+          size="small"
+          color="medium"
+          className="admin-link"
+          onClick={() => navigate({ to: "/" })}
+        >
+          <IonIcon slot="start" icon={globeOutline} aria-hidden="true" />
+          Voltar para o site
+        </IonButton>
         <IonButton
           expand="block"
           fill="clear"

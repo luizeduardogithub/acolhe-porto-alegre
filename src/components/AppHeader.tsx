@@ -1,5 +1,10 @@
 import { IonButton, IonButtons, IonHeader, IonIcon, IonTitle, IonToolbar } from "@ionic/react";
-import { arrowBackOutline, informationCircleOutline, personCircleOutline } from "ionicons/icons";
+import {
+  arrowBackOutline,
+  globeOutline,
+  informationCircleOutline,
+  personCircleOutline,
+} from "ionicons/icons";
 import { useNavigate } from "@tanstack/react-router";
 
 interface AppHeaderProps {
@@ -7,19 +12,26 @@ interface AppHeaderProps {
   backTo?: string;
   showAbout?: boolean;
   showLogin?: boolean;
+  showSite?: boolean;
 }
 
-export function AppHeader({ title, backTo, showAbout, showLogin }: AppHeaderProps) {
+export function AppHeader({ title, backTo, showAbout, showLogin, showSite }: AppHeaderProps) {
   const navigate = useNavigate();
 
   return (
     <IonHeader>
       <IonToolbar color="primary">
-        {backTo ? (
+        {backTo || showSite ? (
           <IonButtons slot="start">
-            <IonButton onClick={() => navigate({ to: backTo })} aria-label="Voltar">
-              <IonIcon slot="icon-only" icon={arrowBackOutline} />
-            </IonButton>
+            {backTo ? (
+              <IonButton onClick={() => navigate({ to: backTo })} aria-label="Voltar">
+                <IonIcon slot="icon-only" icon={arrowBackOutline} />
+              </IonButton>
+            ) : (
+              <IonButton onClick={() => navigate({ to: "/" })} aria-label="Voltar para o site">
+                <IonIcon slot="icon-only" icon={globeOutline} />
+              </IonButton>
+            )}
           </IonButtons>
         ) : null}
         <IonTitle>{title}</IonTitle>
