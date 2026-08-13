@@ -10,8 +10,9 @@ import {
   IonPage,
   IonSegment,
   IonSegmentButton,
+  IonSelect,
+  IonSelectOption,
   IonTextarea,
-  IonToggle,
 } from "@ionic/react";
 import { useEffect, useState } from "react";
 import { AppHeader } from "@/components/AppHeader";
