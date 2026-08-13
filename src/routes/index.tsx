@@ -157,20 +157,30 @@ function SitePage() {
           Protótipo demonstrativo
         </p>
         <h1 className="mt-5 text-4xl font-extrabold leading-tight text-[#0f5c63]">
-          AcolhePOA — informações sobre locais de acolhimento em Porto Alegre
+          Ajude uma pessoa sem moradia a ter um local para dormir hoje
         </h1>
         <p className="mt-4 text-lg text-[#3d514e]">
-          Um aplicativo simples para que pessoas em situação de rua, agentes sociais e serviços
-          públicos encontrem locais de acolhimento e vejam a situação de vagas informada por cada
-          unidade.
+          Pesquise por albergues gratuitos e locais de acolhimento em Porto Alegre, veja quem está
+          com vagas agora e leve essa informação para quem precisa. Uma noite protegida pode começar
+          com uma busca de dez segundos.
         </p>
+
+        <figure className="mt-7 overflow-hidden rounded-2xl shadow-sm">
+          <img
+            src={heroImg}
+            alt="Voluntária entregando cobertor e bebida quente a uma pessoa na entrada de um abrigo à noite"
+            width={1600}
+            height={912}
+            className="h-auto w-full object-cover"
+          />
+        </figure>
 
         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
           <Link
             to="/app"
             className="rounded-xl bg-[#0f5c63] px-6 py-3 text-center text-base font-bold text-white"
           >
-            Acessar o aplicativo
+            Pesquisar albergues gratuitos
           </Link>
           <a
             href={WHATSAPP_URL}
@@ -190,6 +200,110 @@ function SitePage() {
           <strong>protótipo demonstrativo</strong>. Os dados exibidos são fictícios, não representam
           a situação real das unidades e não garantem vaga ou acolhimento. Confirme sempre
           diretamente com a instituição.
+        </section>
+
+        <section className="mt-12" aria-labelledby="campanha">
+          <h2 id="campanha" className="text-2xl font-extrabold text-[#0f5c63]">
+            Uma cama, um banho, um lugar seguro
+          </h2>
+          <p className="mt-3 text-[#3d514e]">
+            Muita gente passa a noite na rua não por falta de abrigo na cidade, mas por falta de
+            informação sobre onde ainda há vaga. O AcolhePOA existe para encurtar esse caminho: em
+            poucos toques você descobre o albergue mais próximo, o telefone, o endereço no mapa e se
+            a unidade aceita animais.
+          </p>
+          <div className="mt-5 grid gap-4 sm:grid-cols-2">
+            <figure className="overflow-hidden rounded-2xl bg-white shadow-sm">
+              <img
+                src={quartoImg}
+                alt="Dormitório de albergue com camas arrumadas e cobertores, iluminação acolhedora"
+                width={1200}
+                height={800}
+                loading="lazy"
+                className="h-52 w-full object-cover"
+              />
+              <figcaption className="p-4 text-sm text-[#4a5654]">
+                <strong className="block text-[#14322f]">Dormir protegido</strong>
+                Albergues oferecem cama, banho, alimentação e orientação social — sem cobrar nada.
+              </figcaption>
+            </figure>
+            <figure className="overflow-hidden rounded-2xl bg-white shadow-sm">
+              <img
+                src={petImg}
+                alt="Homem com seu cachorro sendo recebido na recepção de um abrigo"
+                width={1200}
+                height={800}
+                loading="lazy"
+                className="h-52 w-full object-cover"
+              />
+              <figcaption className="p-4 text-sm text-[#4a5654]">
+                <strong className="block text-[#14322f]">Ninguém precisa deixar seu cão</strong>
+                O app destaca as unidades que aceitam pets, um dos maiores motivos de recusa de
+                acolhimento.
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section className="mt-12 rounded-2xl bg-[#0f5c63] p-6 text-white" aria-labelledby="ajudar">
+          <h2 id="ajudar" className="text-2xl font-extrabold">
+            Como você pode ajudar em 3 minutos
+          </h2>
+          <ol className="mt-4 space-y-3 text-[#e3f1ef]">
+            <li>
+              <strong>1. Pesquise.</strong> Abra o app e procure albergues gratuitos com vagas perto
+              de onde a pessoa está.
+            </li>
+            <li>
+              <strong>2. Informe.</strong> Mostre o endereço, o telefone e o horário para quem
+              precisa — ou ligue junto com a pessoa.
+            </li>
+            <li>
+              <strong>3. Compartilhe.</strong> Envie o link do AcolhePOA para vizinhos, grupos de
+              bairro e agentes sociais. Informação circulando salva noites.
+            </li>
+          </ol>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <Link
+              to="/app"
+              className="rounded-xl bg-white px-6 py-3 text-center text-base font-bold text-[#0f5c63]"
+            >
+              Buscar vagas agora
+            </Link>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-xl border-2 border-white px-6 py-3 text-center text-base font-bold text-white"
+            >
+              Compartilhar no WhatsApp
+            </a>
+          </div>
+        </section>
+
+        <section className="mt-12" aria-labelledby="pesquise">
+          <div className="grid items-center gap-5 sm:grid-cols-2">
+            <figure className="overflow-hidden rounded-2xl shadow-sm">
+              <img
+                src={buscaImg}
+                alt="Mãos segurando um celular pesquisando abrigos na rua ao anoitecer"
+                width={1200}
+                height={800}
+                loading="lazy"
+                className="h-56 w-full object-cover"
+              />
+            </figure>
+            <div>
+              <h2 id="pesquise" className="text-2xl font-extrabold text-[#0f5c63]">
+                Pesquise por albergues gratuitos
+              </h2>
+              <p className="mt-3 text-[#3d514e]">
+                Busque por nome ou bairro, filtre por “com vagas” e abra o endereço direto no mapa.
+                Sem cadastro, sem login e sem custo — funciona no navegador do celular, mesmo em
+                aparelhos simples.
+              </p>
+            </div>
+          </div>
         </section>
 
         <section className="mt-12" aria-labelledby="recursos">
