@@ -1,0 +1,111 @@
+Project AcolhePOA {
+  database_type: 'PostgreSQL'
+  Note: 'Modelagem derivada do estado atual do protótipo (mocks + localStorage).'
+}
+
+Enum availability_status {
+  AVAILABLE
+  FULL
+  UNKNOWN
+}
+
+Enum user_role {
+  ADMIN
+  INSTITUTION
+  PUBLIC
+}
+
+Enum audit_action {
+  CREATE
+  UPDATE
+  STATUS_CHANGE
+  DELETE
+}
+
+Table users {
+  id uuid [pk, default: `gen_random_uuid()`]
+  name varchar(120) [not null]
+  email varchar(255) [not null, unique]
+  google_sub varchar(255) [unique, note: 'login "Entrar com Google" (hoje simulado)']
+  is_active boolean [not null, default: true, note: 'acesso liberado manualmente via WhatsApp']
+  created_at timestamptz [not null, default: `now()`]
+}
+
+Table user_roles {
+  id uuid [pk, default: `gen_random_uuid()`]
+  user_id uuid [not null, ref: > users.id]
+  role user_role [not null]
+  indexes {
+    (user_id, role) [unique]
+  }
+  Note: 'Papéis em tabela separada (nunca na tabela de usuários).'
+}
+
+Table institution_kinds {
+  id smallint [pk, increment]
+  label varchar(80) [not null, unique, note: 'Albergue, Abrigo, Acolhimento, Abrigo/Albergue, Organização de serviço social / acolhimento']
+}
+
+Table neighborhoods {
+  id int [pk, increment]
+  name varchar(120) [not null, unique]
+  city varchar(120) [not null, default: 'Porto Alegre']
+}
+
+Table institutions {
+  id uuid [pk, default: `gen_random_uuid()`]
+  slug varchar(140) [not null, unique, note: 'institutionId atual, ex.: "acolher-1"']
+  name varchar(160) [not null]
+  kind_id smallint [not null, ref: > institution_kinds.id]
+  neighborhood_id int [not null, ref: > neighborhoods.id]
+  address varchar(240)
+  phone varchar(30)
+  schedule varchar(160)
+  audience varchar(240)
+  notes text
+  status availability_status [not null, default: 'UNKNOWN']
+  accepts_pets boolean [note: 'NULL = não informado (tri-estado)']
+  updated_at timestamptz [not null, default: `now()`]
+  created_at timestamptz [not null, default: `now()`]
+}
+
+Table institution_members {
+  id uuid [pk, default: `gen_random_uuid()`]
+  user_id uuid [not null, ref: > users.id]
+  institution_id uuid [not null, ref: > institutions.id]
+  is_primary boolean [not null, default: true]
+  created_at timestamptz [not null, default: `now()`]
+  indexes {
+    (user_id, institution_id) [unique]
+  }
+  Note: 'N:N — quem pode preencher os dados de cada instituição (hoje: DEMO_USER -> acolher-1).'
+}
+
+Table audit_entries {
+  id uuid [pk, default: `gen_random_uuid()`]
+  institution_id uuid [ref: > institutions.id, note: 'nulo após exclusão definitiva']
+  institution_name varchar(160) [not null, note: 'snapshot histórico do nome']
+  action audit_action [not null]
+  description varchar(240) [not null]
+  previous_status availability_status
+  new_status availability_status
+  actor_user_id uuid [ref: > users.id]
+  actor_name varchar(160) [not null]
+  actor_role user_role [not null]
+  created_at timestamptz [not null, default: `now()`]
+  indexes {
+    (institution_id, created_at)
+    (created_at)
+  }
+}
+
+Table access_requests {
+  id uuid [pk, default: `gen_random_uuid()`]
+  requester_name varchar(160)
+  requester_phone varchar(30)
+  institution_name varchar(160)
+  channel varchar(20) [not null, default: 'whatsapp']
+  status varchar(20) [not null, default: 'PENDING']
+  created_at timestamptz [not null, default: `now()`]
+  Note: 'Botão "Criar conta com Google" que hoje abre o WhatsApp do desenvolvedor.'
+}
