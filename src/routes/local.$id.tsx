@@ -132,6 +132,13 @@ function DetalhesPage() {
             <IonButton
               expand="block"
               size="large"
+              fill={institution.phone ? "solid" : "outline"}
+              color={institution.phone ? "primary" : "medium"}
+              aria-label={
+                institution.phone
+                  ? `Ligar para ${institution.name}`
+                  : "Telefone não informado para esta unidade"
+              }
               onClick={() => {
                 if (institution.phone) {
                   window.location.href = telHref(institution.phone);
