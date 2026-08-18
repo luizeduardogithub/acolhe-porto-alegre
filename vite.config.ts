@@ -22,9 +22,12 @@ export default defineConfig({
         filename: "sw.js",
         manifest: false,
         workbox: {
-          navigateFallback: "/",
-          navigateFallbackDenylist: [/^\/~oauth/, /^\/api\//],
-          globPatterns: ["**/*.{js,css,html,png,jpg,svg,webmanifest,woff2}"],
+          // O build do nitro gera os assets em `client/`, o que quebra o precache
+          // (arquivos 404 impedem a instalação do worker). Usamos apenas cache em tempo de execução.
+          globPatterns: [],
+          globDirectory: undefined,
+          navigateFallback: undefined,
+          additionalManifestEntries: [{ url: "/app", revision: `${Date.now()}` }],
           runtimeCaching: [
             {
               urlPattern: ({ request, sameOrigin }) => sameOrigin && request.mode === "navigate",
