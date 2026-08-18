@@ -15,6 +15,7 @@ import { Route as AppRouteImport } from './routes/app'
 import { Route as EntrarRouteImport } from './routes/entrar'
 import { Route as PainelRouteImport } from './routes/painel'
 import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as IndexIndexRouteImport } from './routes/index/index'
 import { Route as LocalIdRouteImport } from './routes/local.$id'
 
 const IndexRoute = IndexRouteImport.update({
@@ -47,6 +48,11 @@ const SobreRoute = SobreRouteImport.update({
   path: '/sobre',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IndexIndexRoute = IndexIndexRouteImport.update({
+  id: '/index/',
+  path: '/index/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LocalIdRoute = LocalIdRouteImport.update({
   id: '/local/$id',
   path: '/local/$id',
@@ -61,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/painel': typeof PainelRoute
   '/sobre': typeof SobreRoute
   '/local/$id': typeof LocalIdRoute
+  '/index/': typeof IndexIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +77,7 @@ export interface FileRoutesByTo {
   '/painel': typeof PainelRoute
   '/sobre': typeof SobreRoute
   '/local/$id': typeof LocalIdRoute
+  '/index': typeof IndexIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -80,13 +88,29 @@ export interface FileRoutesById {
   '/painel': typeof PainelRoute
   '/sobre': typeof SobreRoute
   '/local/$id': typeof LocalIdRoute
+  '/index/': typeof IndexIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/admin' | '/app' | '/entrar' | '/painel' | '/sobre' | '/local/$id'
+    | '/'
+    | '/admin'
+    | '/app'
+    | '/entrar'
+    | '/painel'
+    | '/sobre'
+    | '/local/$id'
+    | '/index/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/admin' | '/app' | '/entrar' | '/painel' | '/sobre' | '/local/$id'
+  to:
+    | '/'
+    | '/admin'
+    | '/app'
+    | '/entrar'
+    | '/painel'
+    | '/sobre'
+    | '/local/$id'
+    | '/index'
   id:
     | '__root__'
     | '/'
@@ -96,6 +120,7 @@ export interface FileRouteTypes {
     | '/painel'
     | '/sobre'
     | '/local/$id'
+    | '/index/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -106,6 +131,7 @@ export interface RootRouteChildren {
   PainelRoute: typeof PainelRoute
   SobreRoute: typeof SobreRoute
   LocalIdRoute: typeof LocalIdRoute
+  IndexIndexRoute: typeof IndexIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -152,6 +178,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SobreRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/index/': {
+      id: '/index/'
+      path: '/index'
+      fullPath: '/index/'
+      preLoaderRoute: typeof IndexIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/local/$id': {
       id: '/local/$id'
       path: '/local/$id'
@@ -170,6 +203,7 @@ const rootRouteChildren: RootRouteChildren = {
   PainelRoute: PainelRoute,
   SobreRoute: SobreRoute,
   LocalIdRoute: LocalIdRoute,
+  IndexIndexRoute: IndexIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
