@@ -13,6 +13,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { AppShell } from "@/components/AppShell";
+import { registerServiceWorker } from "@/lib/pwa";
 
 import "@ionic/react/css/core.css";
 import "@ionic/react/css/normalize.css";
@@ -138,6 +139,9 @@ function RootComponent() {
   // A landing page é HTML puro e precisa ser renderizada no servidor (SEO);
   // as rotas do app usam a casca Ionic, que é montada apenas no cliente.
   const isSite = useRouterState({ select: (s) => s.location.pathname === "/" });
+  useEffect(() => {
+    registerServiceWorker();
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
