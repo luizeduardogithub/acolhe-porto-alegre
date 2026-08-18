@@ -13,6 +13,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { AppShell } from "@/components/AppShell";
+import { ErrorScreen, NotFoundScreen } from "@/components/ErrorScreens";
 import { registerServiceWorker } from "@/lib/pwa";
 
 import "@ionic/react/css/core.css";
