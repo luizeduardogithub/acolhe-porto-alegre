@@ -1,8 +1,9 @@
 /** Contextos onde o service worker nunca deve ser registrado (preview/dev/iframe). */
 function isBlockedContext() {
-  if (!import.meta.env.PROD) return true;
   if (window.self !== window.top) return true;
   const host = window.location.hostname;
+  // Servidor de desenvolvimento local
+  if (host === "localhost" || host === "127.0.0.1" || host.endsWith(".local")) return true;
   if (host.startsWith("id-preview--") || host.startsWith("preview--")) return true;
   const blocked = ["lovableproject.com", "lovableproject-dev.com", "beta.lovable.dev"];
   if (blocked.some((d) => host === d || host.endsWith(`.${d}`))) return true;
