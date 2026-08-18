@@ -1,10 +1,31 @@
-/** Registro do service worker (apenas no navegador, após o load). */
+/** Contextos onde o service worker nunca deve ser registrado (preview/dev/iframe). */
+function isBlockedContext() {
+  if (!import.meta.env.PROD) return true;
+  if (window.self !== window.top) return true;
+  const host = window.location.hostname;
+  if (host.startsWith("id-preview--") || host.startsWith("preview--")) return true;
+  const blocked = ["lovableproject.com", "lovableproject-dev.com", "beta.lovable.dev"];
+  if (blocked.some((d) => host === d || host.endsWith(`.${d}`))) return true;
+  if (new URLSearchParams(window.location.search).has("sw")) {
+    return new URLSearchParams(window.location.search).get("sw") === "off";
+  }
+  return false;
+}
+
+async function unregisterAppWorkers() {
+  const regs = await navigator.serviceWorker.getRegistrations();
+  await Promise.allSettled(
+    regs
+      .filter((r) => (r.active ?? r.waiting ?? r.installing)?.scriptURL.endsWith("/sw.js"))
+      .map((r) => r.unregister()),
+  );
+}
+
+/** Registro do service worker (apenas em produção, fora do preview). */
 export function registerServiceWorker() {
   if (typeof window === "undefined" || !("serviceWorker" in navigator)) return;
-  if (import.meta.env.DEV) {
-    // Em desenvolvimento o SW em cache-first quebra os módulos do Vite (HMR).
-    void navigator.serviceWorker.getRegistrations().then((rs) => rs.forEach((r) => void r.unregister()));
-    void caches?.keys().then((keys) => keys.forEach((k) => void caches.delete(k)));
+  if (isBlockedContext()) {
+    void unregisterAppWorkers();
     return;
   }
   const register = () => {
