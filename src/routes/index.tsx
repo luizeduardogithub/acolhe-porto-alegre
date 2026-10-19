@@ -188,7 +188,7 @@ function SitePage() {
             rel="noopener noreferrer"
             className="site-btn site-btn--outline"
           >
-            Falar no WhatsApp
+            Falar com o desenvolvedor
           </a>
         </div>
 
@@ -276,7 +276,7 @@ function SitePage() {
               rel="noopener noreferrer"
               className="site-btn site-btn--outline-light"
             >
-              Compartilhar no WhatsApp
+              Falar com o desenvolvedor
             </a>
           </div>
         </section>
